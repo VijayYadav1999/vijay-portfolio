@@ -808,7 +808,7 @@
             <p class="subtitle">Senior Associate Programmer | Building scalable microservices & REST APIs</p>
             
             <div class="cta-buttons">
-                <a href="https://github.com/VijayYadav1999/vijay-portfolio/raw/gh-pages/Resume_Vijay_Yadav.pdf" download="Resume_Vijay_Yadav.pdf" class="btn btn-primary">
+                <a href="https://vijayyadav1999.github.io/vijay-portfolio/Resume_Vijay_Yadav.pdf" download="Resume_Vijay_Yadav.pdf" class="btn btn-primary">
                     <i class="fas fa-download"></i> Download Resume
                 </a>
                 <button class="btn btn-secondary" id="viewResumeBtn">
@@ -1070,7 +1070,7 @@
             <div id="pdf-viewer" style="width: 100%; height: 600px; background: white; border-radius: 8px;"></div>
             <div style="padding: 1.5rem; text-align: center; background: var(--bg-light); border-top: 1px solid #e5e7eb;">
                 <p style="color: var(--text-light); margin-bottom: 1rem;">
-                    <a href="https://github.com/VijayYadav1999/vijay-portfolio/raw/gh-pages/Resume_Vijay_Yadav.pdf" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">↓ Download PDF</a>
+                    <a href="https://vijayyadav1999.github.io/vijay-portfolio/Resume_Vijay_Yadav.pdf" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">↓ Download PDF</a>
                 </p>
             </div>
         </div>
@@ -1106,12 +1106,12 @@
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
         async function renderPDF() {
-            const pdfUrl = 'https://github.com/VijayYadav1999/vijay-portfolio/raw/gh-pages/Resume_Vijay_Yadav.pdf';
+            const pdfUrl = 'https://vijayyadav1999.github.io/vijay-portfolio/Resume_Vijay_Yadav.pdf';
             const container = document.getElementById('pdf-viewer');
             container.innerHTML = '<p style="padding: 20px; text-align: center; color: var(--text-light);">Loading PDF...</p>';
 
             try {
-                // Fetch PDF as blob to bypass CORS
+                // Fetch PDF from GitHub Pages (no attachment header)
                 const response = await fetch(pdfUrl);
                 const arrayBuffer = await response.arrayBuffer();
                 const pdf = await pdfjsLib.getDocument(new Uint8Array(arrayBuffer)).promise;
@@ -1135,11 +1135,11 @@
                 // Add link to download full PDF
                 const downloadLink = document.createElement('p');
                 downloadLink.style.cssText = 'text-align: center; margin-top: 10px; color: var(--text-light); font-size: 14px;';
-                downloadLink.innerHTML = '📄 Showing first 2 pages - <a href="https://github.com/VijayYadav1999/vijay-portfolio/raw/gh-pages/Resume_Vijay_Yadav.pdf" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">View Full PDF</a>';
+                downloadLink.innerHTML = '📄 Showing first 2 pages - <a href="https://vijayyadav1999.github.io/vijay-portfolio/Resume_Vijay_Yadav.pdf" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">View Full PDF</a>';
                 container.appendChild(downloadLink);
             } catch (error) {
                 console.error('PDF rendering error:', error);
-                container.innerHTML = '<p style="padding: 20px; text-align: center; color: #ef4444;">Unable to load PDF. <a href="https://github.com/VijayYadav1999/vijay-portfolio/raw/gh-pages/Resume_Vijay_Yadav.pdf" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">Download instead →</a></p>';
+                container.innerHTML = '<p style="padding: 20px; text-align: center; color: #ef4444;">Unable to load PDF. <a href="https://vijayyadav1999.github.io/vijay-portfolio/Resume_Vijay_Yadav.pdf" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">Download instead →</a></p>';
         // Smooth scroll for navbar links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
