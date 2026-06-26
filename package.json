@@ -1,0 +1,19 @@
+{
+  "name": "vijay-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for Vijay Yadav",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "keywords": ["portfolio", "developer"],
+  "author": "Vijay Yadav",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
