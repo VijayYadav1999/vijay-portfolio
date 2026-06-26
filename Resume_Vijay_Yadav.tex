@@ -1,0 +1,278 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=1.5 cm,
+    bottom=1.5 cm,
+    left=1.5 cm,
+    right=1.5 cm,
+    footskip=0.8 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\definecolor{linkColor}{RGB}{0, 102, 204}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Vijay Yadav's CV},
+    pdfauthor={Vijay Yadav},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=linkColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{-1pt}{0.2 cm}{0.12 cm}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.08 cm,
+        parsep=0.08 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0 cm + 0.00001 cm}{0 cm + 0.00001 cm}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\let\hrefWithoutArrow\href
+
+\newcommand{\hrefWithArrow}[2]{%
+    \textcolor{linkColor}{\hrefWithoutArrow{#1}{#2 \raisebox{-0.2ex}{\small$\rightarrow$}}}%
+}
+
+\begin{document}
+ \newcommand{\AND}{\unskip
+    \hspace{0.6em}\textbf{•}\hspace{0.6em}
+    \ignorespaces
+}
+
+\begin{header}
+    \fontsize{14pt}{14pt}\selectfont \textbf{Vijay Yadav}
+
+    \vspace{0.5pt}
+
+    \normalsize
+    \mbox{India}%
+    \AND%
+    \mbox{\hrefWithoutArrow{mailto:vijay5602224@gmail.com}{vijay5602224@gmail.com}}%
+    \AND%
+    \mbox{\hrefWithoutArrow{tel:+91-9305602224}{9305602224}}%
+    \AND%
+    \mbox{\hrefWithArrow{https://vijayyadav1999.github.io/vijay-portfolio/}{Portfolio}}%
+    \AND%
+    \mbox{\hrefWithArrow{https://www.linkedin.com/in/vijayy1}{LinkedIn}}%
+    \AND%
+    \mbox{\hrefWithArrow{https://github.com/VijayYadav1999}{GitHub}}%
+\end{header}
+
+\vspace{0.03 cm}
+
+\section{Professional Summary}
+
+\begin{onecolentry}
+    Senior Associate Programmer with 3+ years architecting high-performance microservices on Azure, achieving 99.9\% uptime SLA. Expert in .NET/ASP.NET Core, Python/FastAPI, and full-stack development. Proven track record optimizing systems processing 1,000+ daily events with 90\% latency reduction. Passionate about SOLID principles, clean architecture, and production-grade reliability.
+\end{onecolentry}
+
+\vspace{0.02 cm}
+
+\section{Technical Skills}
+
+\begin{onecolentry}
+    \textbf{Languages:} C\#, Python 3, JavaScript, TypeScript, SQL, HTML5, CSS3, Java
+\end{onecolentry}
+
+\vspace{0.008cm}
+
+\begin{onecolentry}
+    \textbf{Backend:} ASP.NET Core, Web API, FastAPI, Node.js, Express.js, REST APIs, Dependency Injection, SOLID Principles
+\end{onecolentry}
+
+\vspace{0.008cm}
+
+\begin{onecolentry}
+    \textbf{Frontend:} Angular, Reactive Programming, TypeScript, State Management, Responsive Design
+\end{onecolentry}
+
+\vspace{0.008cm}
+
+\begin{onecolentry}
+    \textbf{Data:} SQL Server, Entity Framework Core, LINQ, MongoDB, Redis, Query Optimization, Database Design
+\end{onecolentry}
+
+\vspace{0.008cm}
+
+\begin{onecolentry}
+    \textbf{Cloud \& DevOps:} Microsoft Azure (Event Grid, Blob Storage, VMs), Docker, Containerization, GitHub Actions, CI/CD, Monitoring
+\end{onecolentry}
+
+\vspace{0.008cm}
+
+\begin{onecolentry}
+    \textbf{Architecture:} Microservices, Event-Driven Systems, System Design (HLD/LLD), Async/Concurrent Programming, Load Balancing, Scalability
+\end{onecolentry}
+
+\vspace{0.04 cm}
+
+\section{Professional Experience}
+
+\begin{twocolentry}{Jul 2023 – Present}
+    \textbf{Senior Associate Programmer}, ICRA Analytics Ltd. -- Kolkata, India
+\end{twocolentry}
+
+\vspace{0.007 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item \textbf{Microservices Architecture:} Designed and deployed event-driven microservices on Azure Event Grid, processing 1,000+ daily events with 99.5\% accuracy. Implemented comprehensive monitoring, structured logging, and SLA compliance. Achieved 90\% latency reduction and 85\% workflow automation.
+        
+        \item \textbf{Performance Optimization:} Optimized SQL queries, Entity Framework LINQ expressions, and implemented multi-layer caching strategies (in-memory caching, Redis patterns). Accelerated data pipeline performance by 30\% and improved system throughput from 2,000 to 4,000+ daily transactions.
+        
+        \item \textbf{API Development:} Architected production-grade REST APIs using ASP.NET Core Web API with comprehensive error handling, rate limiting, JWT authentication, and logging. Designed Angular frontends with responsive UX handling concurrent user loads.
+        
+        \item \textbf{Windows Services \& Async Patterns:} Converted legacy batch processes to Windows Services using multithreading, async/await patterns, and proper resource management. Improved system reliability from 40\% to 90\% crash-free operation.
+        
+        \item \textbf{CI/CD Automation:} Implemented GitHub Actions pipelines for automated testing, building, and deployment. Reduced production bugs by 30\% and decreased deployment time by 40\%.
+        
+        \item \textbf{Tech Stack:} C\#, ASP.NET Core, Python, FastAPI, REST APIs, SQL Server, Entity Framework, LINQ, Angular, Azure, Docker, Microservices
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.01 cm}
+
+\section{Education}
+
+\begin{twocolentry}{Jul 2019 – Jun 2023}
+    \textbf{University of Calcutta}
+\end{twocolentry}
+
+\begin{twocolentry}{B.Tech in Computer Science and Engineering}
+    CGPA: 7.47/10
+\end{twocolentry}
+
+\begin{onecolentry}
+    \textbf{Achievement:} Ranked Top 0.5\% in WBJEE 2019 (AIR 823 among 150,000+ candidates)
+\end{onecolentry}
+
+\vspace{0.01 cm}
+
+\section{Projects}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+\textbf{CodeRank - Online Code Execution Platform} & \textnormal{Dec 2025 – Jan 2026} \\
+\textnormal{\hrefWithArrow{https://github.com/VijayYadav1999/CodeRank}{GitHub Repository}} & \\
+\end{tabular*}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item Architected full-stack code execution platform supporting Python, JavaScript, and C++ with real-time execution engine. Implemented queue-based job processing with Kafka-style message handling. Achieved 99.9\% uptime SLA and 500ms average execution latency.
+        
+        \item Engineered robust asynchronous systems with JWT authentication, request rate limiting, intelligent load balancing across 10+ execution nodes, comprehensive error recovery, and circuit breaker patterns. Handled 1,000+ concurrent executions with zero data loss.
+        
+        \item \textbf{Tech:} Node.js, Express, Angular, MongoDB, Redis, JWT, Docker, Concurrency Control, Multi-threading, Load Balancing
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.008 cm}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+\textbf{Emotion Detection - Deep Learning Classifier} & \textnormal{Feb 2023 – Jun 2023} \\
+\textnormal{\hrefWithArrow{https://github.com/VijayYadav1999/EmotionClassification}{GitHub Repository}} & \\
+\end{tabular*}
+
+\begin{onecolentry}
+    \begin{highlights}
+        \item Built CNN-based facial emotion classifier achieving 80\% accuracy on test set. Implemented real-time webcam integration with OpenCV, optimized inference to 50ms per frame, and deployed as REST API.
+        
+        \item Applied advanced computer vision: image normalization, data augmentation (rotation, flip), transfer learning with VGG16, model quantization for edge deployment.
+        
+        \item \textbf{Tech:} Python, TensorFlow, Keras, OpenCV, Pandas, NumPy, CNNs, Transfer Learning, Deep Learning
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.008 cm}
+
+\section{Achievements}
+
+\begin{onecolentry}
+    \begin{highlightsforbulletentries}
+        \item \textbf{AIR 823 in WBJEE 2019} – Top 0.5\% among 150,000+ candidates nationally in West Bengal Joint Entrance Examination.
+        
+        \item \textbf{500+ LeetCode Problems Solved} – Strong Data Structures and Algorithms proficiency with consistent problem-solving skills.
+        
+        \item \textbf{Production Systems at Scale} – Built and maintained microservices handling 1,000+ events daily with 99.9\% uptime.
+    \end{highlightsforbulletentries}
+\end{onecolentry}
+
+\end{document}
