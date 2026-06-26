@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vijay Yadav - Senior Associate Programmer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,9 +13,9 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #2c3e50;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
         }
@@ -23,8 +24,8 @@
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
             overflow: hidden;
         }
 
@@ -32,20 +33,89 @@
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
+            padding: 60px 40px;
             text-align: center;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 5px solid white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 2.8em;
+            margin-bottom: 8px;
             font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .header p {
-            font-size: 1.1em;
-            margin-bottom: 15px;
+            font-size: 1.15em;
+            margin-bottom: 20px;
             opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .resume-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        .btn-download {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-view {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-view:hover {
+            background: white;
+            color: #667eea;
         }
 
         .contact-info {
@@ -60,174 +130,228 @@
             color: white;
             text-decoration: none;
             transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .contact-info a:hover {
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
         /* Main Content */
         .content {
-            padding: 40px;
+            padding: 50px 40px;
         }
 
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            animation: fadeIn 0.6s ease-out forwards;
         }
 
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
         .section-title {
-            font-size: 1.8em;
+            font-size: 1.9em;
             color: #667eea;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
             border-bottom: 3px solid #667eea;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            font-size: 1.1em;
         }
 
         /* Professional Summary */
         .summary {
-            background: #f8f9ff;
-            padding: 20px;
-            border-left: 4px solid #667eea;
-            border-radius: 5px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            border-radius: 8px;
             line-height: 1.8;
             font-size: 1.05em;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
         }
 
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
         .skill-category {
-            background: #f8f9ff;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
         }
 
         .skill-category h3 {
             color: #667eea;
-            margin-bottom: 12px;
-            font-weight: 600;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 1.1em;
         }
 
         .skill-category p {
-            color: #666;
-            line-height: 1.7;
+            color: #555;
+            line-height: 1.8;
         }
 
         /* Experience */
         .experience-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f8f9ff;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            margin-bottom: 35px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
 
         .experience-header h3 {
             color: #667eea;
-            font-size: 1.2em;
+            font-size: 1.25em;
+            font-weight: 700;
         }
 
         .experience-header .date {
             color: #764ba2;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95em;
+            background: rgba(118, 75, 162, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .experience-item > p {
+            color: #764ba2;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 0.98em;
         }
 
         .experience-item ul {
             margin-left: 20px;
             color: #555;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
         .experience-item li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .tech-stack {
             color: #764ba2;
-            font-weight: 600;
-            margin-top: 10px;
+            font-weight: 700;
+            margin-top: 15px;
             font-size: 0.95em;
+            background: rgba(118, 75, 162, 0.08);
+            padding: 10px 12px;
+            border-radius: 6px;
+            display: block;
         }
 
         /* Projects */
         .project-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #f8f9ff;
-            border-radius: 8px;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+            border-radius: 10px;
             border: 2px solid #667eea;
             transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
         }
 
         .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.25);
         }
 
         .project-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
 
         .project-header h3 {
             color: #667eea;
-            font-size: 1.15em;
+            font-size: 1.2em;
+            font-weight: 700;
         }
 
         .project-header .date {
             color: #764ba2;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.9em;
+            background: rgba(118, 75, 162, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
         }
 
         .project-item ul {
             margin-left: 20px;
             color: #555;
-            line-height: 1.8;
-            margin-bottom: 12px;
+            line-height: 1.9;
+            margin-bottom: 15px;
         }
 
         .project-item li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .project-stack {
-            color: #764ba2;
-            font-weight: 600;
+            color: white;
+            font-weight: 700;
             font-size: 0.95em;
-            background: white;
-            padding: 8px 12px;
-            border-radius: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px 16px;
+            border-radius: 6px;
             display: inline-block;
         }
 
         /* Education & Achievements */
         .edu-item, .achievement-item {
-            padding: 15px;
-            background: #f8f9ff;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
             border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 4px solid #667eea;
+            margin-bottom: 18px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
         }
 
         .edu-header {
@@ -235,23 +359,30 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
+            margin-bottom: 8px;
         }
 
         .edu-header h3 {
             color: #667eea;
             font-size: 1.1em;
+            font-weight: 700;
         }
 
         .edu-header .date {
             color: #764ba2;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 0.9em;
+            background: rgba(118, 75, 162, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
         }
 
         .cgpa {
             color: #764ba2;
-            font-weight: 600;
-            margin-top: 5px;
+            font-weight: 700;
+            margin-top: 8px;
+            font-size: 0.95em;
         }
 
         .achievement-item {
@@ -265,22 +396,73 @@
             left: 15px;
             color: #667eea;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
 
         /* Footer */
         .footer {
-            background: #f8f9ff;
-            padding: 20px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+            padding: 30px 40px;
             text-align: center;
-            border-top: 2px solid #667eea;
+            border-top: 3px solid #667eea;
             color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            color: #667eea;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #764ba2;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .header {
-                padding: 30px 20px;
+                padding: 40px 20px;
+            }
+
+            .profile-img {
+                width: 110px;
+                height: 110px;
             }
 
             .header h1 {
@@ -288,7 +470,7 @@
             }
 
             .content {
-                padding: 20px;
+                padding: 30px 20px;
             }
 
             .contact-info {
@@ -306,6 +488,20 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+
+            .resume-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .modal-content {
+                margin: 20% auto;
+            }
         }
 
         /* Animation */
@@ -320,46 +516,27 @@
             }
         }
 
-        .section {
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .section:nth-child(1) { animation-delay: 0.1s; }
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.3s; }
-        .section:nth-child(4) { animation-delay: 0.4s; }
-        .section:nth-child(5) { animation-delay: 0.5s; }
-
-        .badge {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-right: 5px;
-            margin-top: 5px;
-        }
-
         .scroll-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             cursor: pointer;
-            font-size: 1.2em;
+            font-size: 1.3em;
             display: none;
             z-index: 100;
-            transition: opacity 0.3s, transform 0.3s;
+            transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
         }
 
         .scroll-to-top:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
         }
 
         .scroll-to-top.show {
@@ -373,14 +550,25 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
+            <img src="IMG-20260309-WA0002.jpg" alt="Vijay Yadav" class="profile-img">
             <h1>Vijay Yadav</h1>
             <p>Senior Associate Programmer | Microservices & REST APIs Expert</p>
+            
+            <div class="resume-buttons">
+                <a href="Resume_Vijay_Yadav.pdf" download class="btn btn-download">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
+                <button class="btn btn-view" id="viewResumeBtn">
+                    <i class="fas fa-file-pdf"></i> View Resume
+                </button>
+            </div>
+
             <div class="contact-info">
-                <span>📍 India</span>
-                <a href="mailto:vijay5602224@gmail.com">📧 vijay5602224@gmail.com</a>
-                <span>📱 9305602224</span>
-                <a href="https://linkedin.com" target="_blank">🔗 LinkedIn</a>
-                <a href="https://github.com" target="_blank">🐙 GitHub</a>
+                <span><i class="fas fa-map-marker-alt"></i> India</span>
+                <a href="mailto:vijay5602224@gmail.com"><i class="fas fa-envelope"></i> vijay5602224@gmail.com</a>
+                <span><i class="fas fa-phone"></i> 9305602224</span>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </div>
 
@@ -388,7 +576,7 @@
         <div class="content">
             <!-- Professional Summary -->
             <section class="section">
-                <h2 class="section-title">Professional Summary</h2>
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Summary</h2>
                 <div class="summary">
                     <p>Senior Associate Programmer with 3 years of experience building scalable microservices and REST APIs. 
                     Strong expertise in <strong>.NET/ASP.NET Core</strong>, <strong>Python 3/FastAPI</strong>, and <strong>Angular</strong>. 
@@ -399,26 +587,26 @@
 
             <!-- Technologies -->
             <section class="section">
-                <h2 class="section-title">Technologies & Skills</h2>
+                <h2 class="section-title"><i class="fas fa-code"></i> Technologies & Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3>Languages</h3>
+                        <h3><i class="fas fa-code"></i> Languages</h3>
                         <p>C#, JavaScript, TypeScript, Python, SQL, HTML5, CSS3</p>
                     </div>
                     <div class="skill-category">
-                        <h3>Frameworks & APIs</h3>
+                        <h3><i class="fas fa-cube"></i> Frameworks & APIs</h3>
                         <p>ASP.NET Core, Web API, REST APIs, FastAPI, Entity Framework, LINQ, Node.js, Express.js, Angular</p>
                     </div>
                     <div class="skill-category">
-                        <h3>Databases & Cloud</h3>
+                        <h3><i class="fas fa-database"></i> Databases & Cloud</h3>
                         <p>SQL Server, Query Optimization, MongoDB, Azure (Event Grid, Blob Storage), Docker, Microservices</p>
                     </div>
                     <div class="skill-category">
-                        <h3>DevOps & Tools</h3>
+                        <h3><i class="fas fa-tools"></i> DevOps & Tools</h3>
                         <p>CI/CD Pipelines, GitHub Actions, Windows Services, Git, JWT, Postman, VS Code, Debugging</p>
                     </div>
                     <div class="skill-category">
-                        <h3>Core Competencies</h3>
+                        <h3><i class="fas fa-star"></i> Core Competencies</h3>
                         <p>Microservices Architecture, System Design (HLD/LLD), Event-Driven Architecture, Multithreading, Async/Await, SOLID Principles, OOP, Scalability, Performance Tuning, TDD</p>
                     </div>
                 </div>
@@ -426,13 +614,13 @@
 
             <!-- Professional Experience -->
             <section class="section">
-                <h2 class="section-title">Professional Experience</h2>
+                <h2 class="section-title"><i class="fas fa-user-tie"></i> Professional Experience</h2>
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3>Senior Associate Programmer</h3>
-                        <span class="date">Jul 2023 – Present</span>
+                        <h3><i class="fas fa-briefcase"></i> Senior Associate Programmer</h3>
+                        <span class="date"><i class="fas fa-calendar"></i> Jul 2023 – Present</span>
                     </div>
-                    <p style="color: #764ba2; font-weight: 600; margin-bottom: 12px;">ICRA Analytics Ltd. – Kolkata, India</p>
+                    <p><i class="fas fa-building"></i> ICRA Analytics Ltd. – Kolkata, India</p>
                     <ul>
                         <li><strong>Architected event-driven microservices</strong> on Azure processing 1,000+ daily events with 99.5% accuracy. Implemented monitoring and logging. <strong>Reduced latency by 90%</strong>, automated 85% manual workflows.</li>
                         <li><strong>Optimized SQL queries and Entity Framework</strong> with caching strategies, <strong>accelerating pipelines by 30%</strong>.</li>
@@ -440,18 +628,18 @@
                         <li><strong>Converted legacy batch processes</strong> to Windows Services using multithreading and async/await, <strong>improving reliability by 50%</strong>.</li>
                         <li><strong>Implemented CI/CD pipelines</strong> with GitHub Actions, <strong>reducing production bugs by 30%</strong>.</li>
                     </ul>
-                    <p class="tech-stack">Tech: C#, ASP.NET Core, Python, FastAPI, REST APIs, SQL Server, Entity Framework, Angular, Azure, Microservices</p>
+                    <p class="tech-stack"><i class="fas fa-layer-group"></i> Tech: C#, ASP.NET Core, Python, FastAPI, REST APIs, SQL Server, Entity Framework, Angular, Azure, Microservices</p>
                 </div>
             </section>
 
             <!-- Projects -->
             <section class="section">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title"><i class="fas fa-project-diagram"></i> Featured Projects</h2>
                 
                 <div class="project-item">
                     <div class="project-header">
-                        <h3>CodeRank | Online Code Execution Platform</h3>
-                        <span class="date">Dec 2025 – Jan 2026</span>
+                        <h3><i class="fas fa-code-branch"></i> CodeRank | Online Code Execution Platform</h3>
+                        <span class="date"><i class="fas fa-calendar"></i> Dec 2025 – Jan 2026</span>
                     </div>
                     <ul>
                         <li>Architected and deployed a <strong>full-stack code execution platform</strong> supporting Python, JavaScript, and C++.</li>
@@ -459,57 +647,85 @@
                         <li>Engineered <strong>asynchronous queue-based system</strong> with JWT authentication, rate limiting, load balancing, and comprehensive error handling.</li>
                         <li>Ensured thread-safe concurrent operations and exception handling.</li>
                     </ul>
-                    <span class="project-stack">Stack: Node.js, Express, Angular, MongoDB, JWT, Docker, Concurrency Control, Load Balancing, Production Deployment</span>
+                    <span class="project-stack"><i class="fas fa-layer-group"></i> Stack: Node.js, Express, Angular, MongoDB, JWT, Docker, Concurrency Control, Load Balancing, Production Deployment</span>
                 </div>
 
                 <div class="project-item">
                     <div class="project-header">
-                        <h3>Emotion Detection | Deep Learning Classifier</h3>
-                        <span class="date">Feb 2023 – Jun 2023</span>
+                        <h3><i class="fas fa-brain"></i> Emotion Detection | Deep Learning Classifier</h3>
+                        <span class="date"><i class="fas fa-calendar"></i> Feb 2023 – Jun 2023</span>
                     </div>
                     <ul>
                         <li>Built a <strong>CNN-based facial emotion classifier</strong> using deep learning, <strong>achieving 80% accuracy</strong>.</li>
                         <li>Integrated <strong>real-time webcam detection</strong> with proper image preprocessing and model optimization.</li>
                     </ul>
-                    <span class="project-stack">Stack: Python, TensorFlow, Keras, OpenCV, Pandas, Neural Networks, Deep Learning, Image Processing</span>
+                    <span class="project-stack"><i class="fas fa-layer-group"></i> Stack: Python, TensorFlow, Keras, OpenCV, Pandas, Neural Networks, Deep Learning, Image Processing</span>
                 </div>
             </section>
 
             <!-- Education -->
             <section class="section">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
                 <div class="edu-item">
                     <div class="edu-header">
-                        <h3>University of Calcutta</h3>
-                        <span class="date">Jul 2019 – Jun 2023</span>
+                        <h3><i class="fas fa-university"></i> University of Calcutta</h3>
+                        <span class="date"><i class="fas fa-calendar"></i> Jul 2019 – Jun 2023</span>
                     </div>
-                    <p><strong>B.Tech. in Computer Science and Engineering</strong></p>
-                    <p class="cgpa">CGPA: 7.47/10</p>
+                    <p><strong><i class="fas fa-scroll"></i> B.Tech. in Computer Science and Engineering</strong></p>
+                    <p class="cgpa"><i class="fas fa-chart-line"></i> CGPA: 7.47/10</p>
                 </div>
             </section>
 
             <!-- Achievements -->
             <section class="section">
-                <h2 class="section-title">Achievements</h2>
+                <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements</h2>
                 <div class="achievement-item">
-                    <strong>AIR 823 in WBJEE 2019</strong> – Top 0.5% among 150,000+ candidates nationally.
+                    <strong><i class="fas fa-star"></i> AIR 823 in WBJEE 2019</strong> – Top 0.5% among 150,000+ candidates nationally.
                 </div>
                 <div class="achievement-item">
-                    <strong>Solved 500+ problems</strong> on LeetCode and HackerRank with strong Data Structures and Algorithms proficiency.
+                    <strong><i class="fas fa-code"></i> Solved 500+ problems</strong> on LeetCode and HackerRank with strong Data Structures and Algorithms proficiency.
                 </div>
             </section>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>&copy; 2026 Vijay Yadav. All rights reserved. | Crafted with ❤️ using FastAPI & Python</p>
+            <p><i class="fas fa-heart"></i> &copy; 2026 Vijay Yadav. All rights reserved. | Crafted with ❤️ using FastAPI & Python</p>
+        </div>
+    </div>
+
+    <!-- Resume Modal -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 20px;"><i class="fas fa-file-pdf"></i> Resume</h2>
+            <iframe src="Resume_Vijay_Yadav.pdf" class="pdf-viewer"></iframe>
         </div>
     </div>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scrollToTop">↑</button>
+    <button class="scroll-to-top" id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
 
     <script>
+        // Resume Modal
+        const modal = document.getElementById('resumeModal');
+        const viewResumeBtn = document.getElementById('viewResumeBtn');
+        const closeModal = document.querySelector('.close-modal');
+
+        viewResumeBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+
         // Scroll to Top Functionality
         const scrollToTopBtn = document.getElementById('scrollToTop');
 
