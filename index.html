@@ -13,13 +13,16 @@
         }
 
         :root {
-            --primary: #667eea;
-            --primary-dark: #764ba2;
-            --text-dark: #2d3748;
-            --text-light: #718096;
-            --bg-light: #f7fafc;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #8b5cf6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -97,7 +100,7 @@
         .hero {
             margin-top: 70px;
             min-height: calc(100vh - 70px);
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: var(--bg-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -109,25 +112,25 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.1);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
             border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            animation: float 6s ease-in-out infinite;
+            top: -150px;
+            right: -150px;
+            animation: float 8s ease-in-out infinite;
         }
 
         .hero::after {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.05);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
             border-radius: 50%;
-            bottom: -50px;
-            left: -50px;
-            animation: float 8s ease-in-out infinite;
+            bottom: -100px;
+            left: -100px;
+            animation: float 10s ease-in-out infinite reverse;
         }
 
         @keyframes float {
@@ -153,15 +156,22 @@
             height: 180px;
             border-radius: 50%;
             margin: 0 auto 2rem;
-            border: 5px solid white;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 6px solid white;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255,255,255,0.3);
             object-fit: cover;
-            animation: slideInDown 0.8s ease-out;
+            object-position: center;
+            animation: slideInDown 0.8s ease-out, pulse 3s ease-in-out infinite;
+            background: white;
         }
 
         @keyframes slideInDown {
             from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255,255,255,0.3); }
+            50% { box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 25px 10px rgba(255,255,255,0.6); }
         }
 
         .hero-content h1 {
@@ -203,24 +213,27 @@
         .btn-primary {
             background: white;
             color: var(--primary);
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            background: #f3f4f6;
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             color: white;
-            border: 2px solid white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
         .social-links {
@@ -231,23 +244,27 @@
         }
 
         .social-links a {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .social-links a:hover {
             background: white;
             color: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.1);
+            border-color: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
         /* Container */
@@ -269,21 +286,23 @@
             margin-bottom: 4rem;
             color: var(--text-dark);
             position: relative;
+            animation: slideInUp 0.8s ease-out;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-            margin: 1rem auto 0;
-            border-radius: 2px;
+            width: 80px;
+            height: 5px;
+            background: var(--bg-gradient);
+            margin: 1.2rem auto 0;
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(102, 102, 255, 0.3);
         }
 
         /* About Section */
         .about {
-            background: var(--bg-light);
+            background: linear-gradient(180deg, var(--bg-light) 0%, #ffffff 100%);
         }
 
         .about-content {
@@ -689,7 +708,7 @@
         }
 
         .modal-header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: var(--bg-gradient);
             color: white;
             padding: 2rem;
             display: flex;
@@ -704,9 +723,16 @@
             font-size: 2rem;
             cursor: pointer;
             transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
             transform: rotate(90deg);
         }
 
@@ -714,6 +740,7 @@
             width: 100%;
             height: 600px;
             border: none;
+            display: block;
         }
 
         /* Responsive */
@@ -775,12 +802,12 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <img src="IMG-20260309-WA0002.jpg" alt="Vijay Yadav" class="profile-image">
+            <img src="IMG-20260309-WA0002.jpg" alt="Vijay Yadav Profile" class="profile-image" onerror="this.src='https://via.placeholder.com/180?text=Vijay+Yadav'">
             <h1>Vijay Yadav</h1>
             <p class="subtitle">Senior Associate Programmer | Building scalable microservices & REST APIs</p>
             
             <div class="cta-buttons">
-                <a href="Resume_Vijay_Yadav.pdf" download class="btn btn-primary">
+                <a href="Resume_Vijay_Yadav.pdf" download="Resume_Vijay_Yadav.pdf" class="btn btn-primary">
                     <i class="fas fa-download"></i> Download Resume
                 </a>
                 <button class="btn btn-secondary" id="viewResumeBtn">
@@ -1039,7 +1066,10 @@
                 <h2><i class="fas fa-file-pdf"></i> My Resume</h2>
                 <button class="modal-close" id="closeModal">&times;</button>
             </div>
-            <iframe src="Resume_Vijay_Yadav.pdf" class="pdf-viewer"></iframe>
+            <iframe src="Resume_Vijay_Yadav.pdf#toolbar=1&navpanes=0&scrollbar=1" class="pdf-viewer" title="Resume PDF"></iframe>
+            <div style="padding: 1.5rem; text-align: center; background: var(--bg-light); border-top: 1px solid #e5e7eb;">
+                <p style="color: var(--text-light); margin-bottom: 1rem;">Can't view the PDF inline? <a href="Resume_Vijay_Yadav.pdf" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">Open in new tab</a></p>
+            </div>
         </div>
     </div>
 
