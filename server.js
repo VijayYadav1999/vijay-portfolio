@@ -6,7 +6,7 @@ const app = express();
 
 const uploadDir = path.join(__dirname, 'uploads');
 const resumePath = path.join(uploadDir, 'resume.pdf');
-const publicResumePath = path.join(__dirname, 'Resume_Vijay_Yadav.pdf');
+const publicResumePath = path.join(__dirname, 'public', 'Resume_Vijay_Yadav.pdf');
 const adminPassword = process.env.RESUME_ADMIN_PASSWORD || 'portfolio123';
 
 if (!fs.existsSync(uploadDir)) {
@@ -15,6 +15,17 @@ if (!fs.existsSync(uploadDir)) {
 
 if (!fs.existsSync(resumePath) && fs.existsSync(publicResumePath)) {
   fs.copyFileSync(publicResumePath, resumePath);
+}
+
+// If an uploaded resume already exists (from previous uploads), ensure the public copy
+// is also present so the static embed/download shows the latest file.
+if (fs.existsSync(resumePath)) {
+  try {
+    fs.copyFileSync(resumePath, publicResumePath);
+  } catch (e) {
+    // Log but don't crash startup
+    console.error('Failed to copy existing upload to public resume path:', e.message);
+  }
 }
 
 const storage = multer.diskStorage({
