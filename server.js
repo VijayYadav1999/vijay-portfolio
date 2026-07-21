@@ -47,8 +47,28 @@ app.post('/admin/resume', upload.single('resume'), (req, res) => {
     return res.status(400).json({ message: 'Please upload a PDF file.' });
   }
 
-  fs.renameSync(req.file.path, resumePath);
-  res.json({ message: 'Resume updated successfully.' });
+  // Ensure the uploaded file is saved to the uploads folder
+  try {
+    // copy to uploads/resume.pdf (overwrite)
+    fs.copyFileSync(req.file.path, resumePath);
+
+    // also copy to the public resume path so the site embed/download uses the latest file
+    try {
+      fs.copyFileSync(req.file.path, publicResumePath);
+    } catch (e) {
+      console.error('Failed to copy uploaded resume to public folder:', e.message);
+    }
+
+    // remove the temporary upload if it exists at a different path
+    if (fs.existsSync(req.file.path) && req.file.path !== resumePath) {
+      try { fs.unlinkSync(req.file.path); } catch (e) { /* ignore */ }
+    }
+
+    res.json({ message: 'Resume updated successfully.' });
+  } catch (err) {
+    console.error('Error saving uploaded resume:', err);
+    return res.status(500).json({ message: 'Failed to save uploaded resume.' });
+  }
 });
 
 app.get('/resume.pdf', (req, res) => {
